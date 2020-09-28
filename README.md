@@ -38,6 +38,7 @@ Property | Type | Required | Description
 `artifactBucket` | string | true | Bucket name for stored artifacts
 `env` | Record<string, string> | false | Map of environment variables that are made available to each stage.
 `source` | Source Object | true | Configuration for source. 
+`stages` | Array<Stage> | true | List of stages.
 
 #### Source Properties
 
