@@ -1,0 +1,14 @@
+{
+  "include": [
+    "**/*"
+  ],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "ES2017",
+    "module": "commonjs",
+    "outDir": "./build",
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true
+  }
+}

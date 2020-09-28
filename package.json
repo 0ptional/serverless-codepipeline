@@ -1,0 +1,23 @@
+{
+  "name": "serverless-codepipeline-plugin",
+  "version": "1.0.0",
+  "author": "0ptional",
+  "description": "",
+  "main": "build/index.js",
+  "homepage": "https://github.com/0ptional/serverless-codepipeline",
+  "repository": {
+    "url": "https://github.com/0ptional/serverless-codepipeline"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@types/node": "^12.7.12",
+    "@types/serverless": "^1.78.0",
+    "tslint": "^5.20.0",
+    "typescript": "^4.0.3"
+  }
+}
