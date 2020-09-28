@@ -1,6 +1,6 @@
 {
   "name": "serverless-codepipeline-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "0ptional",
   "description": "",
   "main": "build/index.js",
