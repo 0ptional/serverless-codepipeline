@@ -29,8 +29,9 @@ custom:
 
 
 #### General Properties
+
 Property | Type | Required | Description
----|---|---|---|---
+---|---|---|---
 `computeType` | string | false | Defaults to `BUILD_GENERAL1_SMALL`. See [Allowed Values](https://)
 `enabled` | boolean | false | Set to `false` if pipeline should not be deployed. This is useful for stage dependent creation of pipeline. Defaults to true.
 `image` | string | true | Provide a docker image name.
@@ -39,15 +40,17 @@ Property | Type | Required | Description
 `source` | Source Object | true | Configuration for source. 
 
 #### Source Properties
+
 Property | Type | Required | Description
----|---|---|---|---
+---|---|---|---
 `repository` | string | true | Name of repository in AWS CodeCommit.
 `branch` | string | false | Branch that should be checked out. Defaults to `master`.
 `trigger` | boolean | false | Set to `false` if the pipeline should not be triggered on source changes. Defaults to `true`.
 
 #### Stage Properties
+
 Property | Type | Required | Description
----|---|---|---|---
+---|---|---|---
 `name` | string | true | Stage name. Output names are also based on stage name.
 `spec` | string | true | Location of the CodeBuild spec file within the primary input (source).
 `inputs` | string[] | false | Specify all stage names from which a stage should receive additional input. The source input is always the primary.
