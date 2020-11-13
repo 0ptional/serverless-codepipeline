@@ -1,10 +1,13 @@
+import { Tag } from "./Common";
+
 export type IAMRole = {
     Type: 'AWS::IAM::Role';
     Properties: {
         AssumeRolePolicyDocument: {
             Statement: PolicyStatement[]
         };
-        Policies: IAMPolicy[]
+        Policies: IAMPolicy[];
+        Tags?: Tag[];
     };
 }
 

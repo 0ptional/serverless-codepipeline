@@ -1,3 +1,5 @@
+import { Tag } from "./Common";
+
 export type CodeBuildProject = {
     Type: 'AWS::CodeBuild::Project';
     Properties: {
@@ -16,5 +18,6 @@ export type CodeBuildProject = {
             Type: 'CODEPIPELINE';
         };
         ServiceRole: string | { Ref: string };
+        Tags?: Tag[];
     };
 };
