@@ -84,7 +84,7 @@ function codecommitSourceAction(config: CodeCommitSourceConfig): CodeCommitSourc
         ActionTypeId: codeCommitActionId(),
         Configuration: {
             BranchName: config.branch || 'master',
-            PollForSourceChanges: config.trigger !== undefined ? config.trigger : true,
+            PollForSourceChanges: false,
             RepositoryName: config.repository
         },
         InputArtifacts: [],

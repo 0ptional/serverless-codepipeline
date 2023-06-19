@@ -56,6 +56,8 @@ Property | Type | Required | Description
 `branch` | *string* | false | Branch that should be checked out. Defaults to `master`.
 `trigger` | *boolean* | false | Set to `false` if the pipeline should not be triggered on source changes. Defaults to `true`.
 
+*Note: With version 1.3.x and above the trigger is no longer polling. Instead, an event rule is created that triggers the pipeline.*
+
 #### GitHub Source Properties
 
 Property | Type | Required | Description

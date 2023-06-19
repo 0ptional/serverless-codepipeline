@@ -7,6 +7,7 @@ import { logicalProjectName, mapToTags } from "./util";
 import { buildIAMRole } from "./IAMRole";
 import { buildProjects } from "./Projects";
 import { buildLogGroups } from "./LogGroup";
+import { triggerEventRule, triggerIAMRole } from './PipelineTrigger';
 
 
 export type PipelineResources = {
@@ -24,12 +25,20 @@ export class PipelineBuilder {
             return all;
         }, {});
 
-        return {
+        const useEventBridgeTrigger = (config.source.type === 'codecommit' || config.source.type === undefined) && config.source.trigger !== false;
+
+        const resources: PipelineResources = {
             CodePipelineRole: buildIAMRole(config),
             CodePipeline: this.pipeline(config),
             ...projectEntries,
-            ...buildLogGroups(projects, config.logRetention)
+            ...buildLogGroups(projects, config.logRetention),
+            ...(useEventBridgeTrigger ? {
+                TriggerEventRule: triggerEventRule(config.source.repository, config.source.branch),
+                TriggerEventRole: triggerIAMRole(config),
+            } : {})
         };
+
+        return resources;
     }
 
     public static pipeline(config: PipelineConfig): CodePipeline {

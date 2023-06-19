@@ -1,13 +1,16 @@
 import { Tag } from "./Common";
 
-export type IAMRole = {
-    Type: 'AWS::IAM::Role';
+export type EventRule = {
+    Type: 'AWS::Events::Rule';
     Properties: {
-        AssumeRolePolicyDocument: {
-            Statement: PolicyStatement[]
-        };
-        Policies: IAMPolicy[];
-        Tags?: Tag[];
+        EventPattern: {
+            source: string[];
+            'detail-type': string[];
+            resources: string[] | any;
+            detail: any;
+        },
+        Targets: any;
+        
     };
 }
 
