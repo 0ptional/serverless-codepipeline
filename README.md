@@ -96,7 +96,7 @@ Property | Type | Required | Description
 ---|---|---|---
 `id` | *string* | true | VPC ID.
 `subnets` | *string[]* | true | List of VPC subnets to use.
-`securityGroupIds` | *string* | true | List of security group ids.
+`securityGroupIds` | *string[]* | true | List of security group ids.
 
 
 ## Full Example
