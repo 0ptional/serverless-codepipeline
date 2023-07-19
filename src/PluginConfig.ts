@@ -12,9 +12,16 @@ type PipelineConfigParams = {
     readonly stages: StageConfigParams[];
     readonly tags?: Variables;
     readonly logRetention?: number;
+    readonly vpc?: VPCConfig;
 }
 
 export type SourceConfig = CodeCommitSourceConfig | GitHubSourceConfig | S3SourceConfig;
+
+export type VPCConfig = {
+    readonly id: string;
+    readonly subnets: string[];
+    readonly securityGroupIds: string[];
+}
 
 export type CodeCommitSourceConfig = {
     readonly type?: 'codecommit';
@@ -57,6 +64,7 @@ export class PipelineConfig {
     readonly enabled: boolean;
     readonly tags: Variables;
     readonly logRetention?: number;
+    readonly vpc?: VPCConfig;
 
     constructor(params: PipelineConfigParams, service: Service) {
         this.name = params.name || service.getServiceName();
@@ -71,6 +79,7 @@ export class PipelineConfig {
         this.logRetention = params.logRetention;
 
         this.source = params.source;
+        this.vpc = params.vpc;
     }
 
 }

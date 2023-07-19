@@ -19,5 +19,10 @@ export type CodeBuildProject = {
         };
         ServiceRole: string | { Ref: string };
         Tags?: Tag[];
+        VpcConfig?: {
+            SecurityGroupIds: string[];
+            Subnets: string[];
+            VpcId: string;
+        };
     };
 };

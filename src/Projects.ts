@@ -22,7 +22,12 @@ export function buildProjects(config: PipelineConfig): CodeBuildProject[] {
                     Type: 'CODEPIPELINE'
                 },
                 ServiceRole: { Ref: 'CodePipelineRole' },
-                Tags: mapToTags(config.tags)
+                Tags: mapToTags(config.tags),
+                VpcConfig: config.vpc ? {
+                    VpcId: config.vpc.id,
+                    SecurityGroupIds: config.vpc.securityGroupIds,
+                    Subnets: config.vpc.subnets,
+                } : undefined,
             }
         }
     });

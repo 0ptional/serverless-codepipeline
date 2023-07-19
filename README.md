@@ -42,6 +42,7 @@ Property | Type | Required | Description
 `stages` | *Array\<Stage>* | true | List of stages.
 `logRetention` | *number* | false | Number of days for which codebuild logs are retained in cloudwatch. See [allowed values](https://docs.aws.amazon.com/de_de/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html). Defaults to no limit.
 `tags` | *Record<string, string>* | false | Map of tags. Merged with tags defined in provider. The tags are applied to all created resources (IAM Role, CodeBuild Projects and Pipeline).
+`vpc` | *VPCConfig Object* | false | Contains the configuration for a VPC. This will be used for all stages.
 
 ### Source Properties
 
@@ -88,6 +89,15 @@ Property | Type | Required | Description
 `env` | *Record<string, string>* | false | Adds stage specifc environment variables. Stage variables are merged with global variables.
 `computeType` | *string* | false | Specify if this stage should run with a different compute type than provided in general config.
 `manualExecution` | *boolean* | false | Set to true, if this stage should not run automatically. Defaults to `false`.
+
+### VPCConfig Properties
+
+Property | Type | Required | Description
+---|---|---|---
+`id` | *string* | true | VPC ID.
+`subnets` | *string[]* | true | List of VPC subnets to use.
+`securityGroupIds` | *string* | true | List of security group ids.
+
 
 ## Full Example
 
